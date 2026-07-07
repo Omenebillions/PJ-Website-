@@ -1,0 +1,6 @@
+{
+  "name": "Purple Jasmine Cafe",
+  "description": "A premium marketing website for Purple Jasmine Cafe with online ordering via Zappie.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

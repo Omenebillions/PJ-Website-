@@ -1,0 +1,10 @@
+{
+  "name": "Purple Jasmine Cafe",
+  "short_name": "Purple Jasmine",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FDFBF7",
+  "theme_color": "#2D1A2E",
+  "description": "Experience the Language of Taste. All day cafe lounge in Ikoyi.",
+  "icons": []
+}
