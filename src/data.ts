@@ -5,7 +5,7 @@ export const siteConfig = {
   description: "Experience the Language of Taste. All day cafe & lounge in Ikoyi.",
   address: "97 Awolowo Road, Ikoyi, Lagos 101251, Lagos, Nigeria",
   phone: "0814 824 7243",
-  email: "hello@purplejasmine.com",
+  email: "purplejasminecafe@gmail.com",
   instagram: "https://www.instagram.com/purplejasminecafe",
   facebook: "https://www.facebook.com/share/18ztJAeRZU/",
   tiktok: "https://www.tiktok.com/@purplejasminecafe",
