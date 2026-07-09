@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { motion } from "motion/react";
 import { siteConfig, featuredMenuItems } from "../data";
-import { ArrowRight, Star } from "lucide-react";
+import { ArrowRight, Star, ShoppingBag } from "lucide-react";
 
 const fadeUp = {
   initial: { opacity: 0, y: 20 },
@@ -134,18 +134,30 @@ export function Home() {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 className="group cursor-pointer"
               >
-                <div className="aspect-square rounded-2xl overflow-hidden mb-6 bg-cafe-cream">
-                  <img 
-                    src={item.image} 
-                    alt={item.name} 
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                  />
-                </div>
-                <div className="flex justify-between items-start gap-4 mb-2">
-                  <h3 className="font-serif text-xl font-bold text-cafe-purple-dark leading-snug group-hover:text-cafe-gold transition-colors">{item.name}</h3>
-                  <span className="font-medium text-cafe-gold whitespace-nowrap">{item.price}</span>
-                </div>
-                <p className="text-sm text-cafe-text/70 line-clamp-2">{item.description}</p>
+                <a 
+                  href={item.zappieUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block"
+                >
+                  <div className="aspect-square rounded-2xl overflow-hidden mb-6 bg-cafe-cream">
+                    <img 
+                      src={item.image} 
+                      alt={item.name} 
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    />
+                  </div>
+                  <div className="flex justify-between items-start gap-4 mb-2">
+                    <h3 className="font-serif text-xl font-bold text-cafe-purple-dark leading-snug group-hover:text-cafe-gold transition-colors">{item.name}</h3>
+                    <span className="font-medium text-cafe-gold whitespace-nowrap">{item.price}</span>
+                  </div>
+                  <p className="text-sm text-cafe-text/70 line-clamp-2 mb-4">{item.description}</p>
+                  
+                  <div className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-cafe-gold group-hover:text-cafe-purple-dark transition-colors">
+                    <ShoppingBag size={14} />
+                    <span>Order on Zappie</span>
+                  </div>
+                </a>
               </motion.div>
             ))}
           </div>

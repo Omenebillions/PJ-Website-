@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { allMenuItems, siteConfig } from "../data";
-import { ArrowRight, Utensils, GlassWater } from "lucide-react";
+import { ArrowRight, Utensils, GlassWater, ShoppingBag } from "lucide-react";
 import { cn } from "../lib/utils";
 
 const categories = ["All", "Meals", "Sandwiches", "Drinks"];
@@ -99,18 +99,30 @@ export function Menu() {
               transition={{ duration: 0.3 }}
               className="group flex flex-col sm:flex-row gap-6 items-start"
             >
-              {item.image && (
-                <div className="w-full sm:w-32 h-48 sm:h-32 shrink-0 rounded-2xl overflow-hidden bg-cafe-cream border border-cafe-gold/10">
-                  <img src={item.image} alt={item.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+              <a 
+                href={item.zappieUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex flex-col sm:flex-row gap-6 items-start w-full group"
+              >
+                {item.image && (
+                  <div className="w-full sm:w-32 h-48 sm:h-32 shrink-0 rounded-2xl overflow-hidden bg-cafe-cream border border-cafe-gold/10">
+                    <img src={item.image} alt={item.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                  </div>
+                )}
+                <div className="flex-1 w-full">
+                  <div className="flex justify-between items-start gap-4 mb-2 border-b border-cafe-gold/20 pb-2">
+                    <h3 className="font-serif text-xl font-bold text-cafe-purple-dark group-hover:text-cafe-gold transition-colors">{item.name}</h3>
+                    <span className="font-medium text-cafe-gold whitespace-nowrap">{item.price}</span>
+                  </div>
+                  <p className="text-sm text-cafe-text/70 mt-3 mb-3">{item.description}</p>
+                  
+                  <div className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-widest text-cafe-gold group-hover:text-cafe-purple-dark transition-colors">
+                    <ShoppingBag size={14} />
+                    <span>Order on Zappie</span>
+                  </div>
                 </div>
-              )}
-              <div className="flex-1 w-full">
-                <div className="flex justify-between items-start gap-4 mb-2 border-b border-cafe-gold/20 pb-2">
-                  <h3 className="font-serif text-xl font-bold text-cafe-purple-dark group-hover:text-cafe-gold transition-colors">{item.name}</h3>
-                  <span className="font-medium text-cafe-gold whitespace-nowrap">{item.price}</span>
-                </div>
-                <p className="text-sm text-cafe-text/70 mt-3">{item.description}</p>
-              </div>
+              </a>
             </motion.div>
           ))}
         </AnimatePresence>

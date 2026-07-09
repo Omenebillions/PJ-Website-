@@ -5,6 +5,7 @@ export interface MenuItem {
   price: string;
   category: "Meals" | "Sandwiches" | "Drinks" | "Specials" | "Brunch";
   image?: string;
+  zappieUrl?: string;
 }
 
 export interface Testimonial {
