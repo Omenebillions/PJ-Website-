@@ -1,10 +1,50 @@
 {
   "name": "Purple Jasmine Cafe",
   "short_name": "Purple Jasmine",
+  "description": "Experience the Language of Taste. All day cafe & lounge in Ikoyi, Lagos.",
   "start_url": "/",
+  "scope": "/",
   "display": "standalone",
-  "background_color": "#FDFBF7",
+  "orientation": "portrait",
+  "background_color": "#2D1A2E",
   "theme_color": "#2D1A2E",
-  "description": "Experience the Language of Taste. All day cafe lounge in Ikoyi.",
-  "icons": []
+  "categories": ["food", "shopping"],
+  "icons": [
+    {
+      "src": "/favicon.jpg",
+      "sizes": "192x192",
+      "type": "image/jpeg",
+      "purpose": "any"
+    },
+    {
+      "src": "/favicon.jpg",
+      "sizes": "512x512",
+      "type": "image/jpeg",
+      "purpose": "any"
+    },
+    {
+      "src": "/logo.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/logo.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
 }
