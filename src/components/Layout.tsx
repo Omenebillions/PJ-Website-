@@ -39,13 +39,21 @@ export function Layout({ children }: { children: React.ReactNode }) {
       <header className="fixed top-0 left-0 right-0 z-50 bg-cafe-cream/95 backdrop-blur-sm py-4 border-b border-cafe-gold/20 shadow-sm transition-all duration-300">
         <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between">
           {/* Logo */}
-          <Link to="/" className="flex flex-col items-center z-50 relative">
-            <span className="font-serif text-2xl md:text-3xl font-bold text-cafe-purple-dark tracking-tight">
-              Purple Jasmine Cafe
-            </span>
-            <span className="text-[0.65rem] uppercase tracking-widest text-cafe-gold font-medium mt-0.5">
-              All Day Cafe & Lounge
-            </span>
+          <Link to="/" className="flex items-center gap-3 z-50 relative group">
+            <img 
+              src="/logo.png" 
+              alt="Purple Jasmine Cafe Logo" 
+              className="w-10 h-10 md:w-11 md:h-11 rounded-full object-cover border border-cafe-gold/30 shadow-sm group-hover:scale-105 transition-transform duration-300"
+              referrerPolicy="no-referrer"
+            />
+            <div className="flex flex-col">
+              <span className="font-serif text-xl md:text-2xl font-bold text-cafe-purple-dark tracking-tight leading-tight">
+                Purple Jasmine Cafe
+              </span>
+              <span className="text-[0.6rem] md:text-[0.65rem] uppercase tracking-widest text-cafe-gold font-semibold leading-none mt-0.5">
+                All Day Cafe & Lounge
+              </span>
+            </div>
           </Link>
 
           {/* Desktop Nav */}

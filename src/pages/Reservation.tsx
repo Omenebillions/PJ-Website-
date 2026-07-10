@@ -46,7 +46,8 @@ export function Reservation() {
       `• *Date:* ${formData.date}\n` +
       `• *Time:* ${formData.time}\n` +
       `• *Guests:* ${formData.guests} people\n` +
-      `• *Occasion:* ${formData.occasion}`;
+      `• *Occasion:* ${formData.occasion}\n\n` +
+      `_Reservation done via PJ Website_`;
     
     return `https://wa.me/${siteConfig.whatsapp}?text=${encodeURIComponent(text)}`;
   };
@@ -56,7 +57,7 @@ export function Reservation() {
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
         
         {/* Info Column */}
-        <div className="lg:col-span-5">
+        <div className="lg:col-span-5 order-2 lg:order-1">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -120,7 +121,7 @@ export function Reservation() {
         </div>
 
         {/* Form Column */}
-        <div className="lg:col-span-7">
+        <div className="lg:col-span-7 order-1 lg:order-2">
           <motion.div 
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}

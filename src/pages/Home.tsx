@@ -32,15 +32,18 @@ export function Home() {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
-            <span className="inline-block py-1.5 px-4 rounded-full border border-cafe-gold/50 bg-cafe-gold/10 text-cafe-gold text-xs uppercase tracking-[0.2em] mb-6 backdrop-blur-sm font-medium">
-              Made with Love, Served with Joy
+            <span className="inline-block py-1.5 px-4 rounded-full border border-cafe-gold/50 bg-cafe-gold/10 text-cafe-gold text-xs uppercase tracking-[0.15em] mb-6 backdrop-blur-sm font-semibold">
+              All-Day Café & Lounge • Breakfast • Brunch • Lunch • Dinner • Cocktails
             </span>
             <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif text-white mb-6 leading-[1.1]">
               Experience the <br className="hidden md:block"/>
               <span className="text-cafe-gold italic">Language</span> of Taste
             </h1>
-            <p className="text-lg md:text-xl text-cafe-cream/90 font-light mb-10 max-w-2xl mx-auto">
-              Every smile, every bite, every sip... that's the Purple Jasmine Café experience. Come for the food, stay for the moments.
+            <p className="text-lg md:text-2xl text-cafe-cream font-medium mb-3 max-w-3xl mx-auto tracking-wide">
+              Where every smile, every bite, and every sip tells a story.
+            </p>
+            <p className="text-sm md:text-base text-cafe-cream/80 font-light mb-10 max-w-2xl mx-auto">
+              Indulge in exceptional food, handcrafted drinks, and unforgettable moments at Purple Jasmine Café.
             </p>
             
             <div className="flex flex-wrap items-center justify-center gap-4">
