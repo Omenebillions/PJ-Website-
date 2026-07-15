@@ -76,50 +76,14 @@ export function Layout({ children }: { children: React.ReactNode }) {
 
           {/* Action Button & Mobile Toggle */}
           <div className="flex items-center gap-4 z-50 relative">
-            <div 
-              className="relative hidden md:block"
-              onMouseEnter={() => setOrderDropdownOpen(true)}
-              onMouseLeave={() => setOrderDropdownOpen(false)}
+            <a
+              href={siteConfig.zappieUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hidden md:inline-flex items-center justify-center px-6 py-2.5 text-sm font-semibold tracking-wide text-white bg-cafe-purple-dark hover:bg-cafe-gold hover:text-cafe-dark transition-colors rounded-full shadow-sm cursor-pointer"
             >
-              <button
-                onClick={() => setOrderDropdownOpen(!orderDropdownOpen)}
-                className="inline-flex items-center justify-center px-6 py-2.5 text-sm font-medium tracking-wide text-white bg-cafe-purple-dark hover:bg-cafe-purple transition-colors rounded-full shadow-sm cursor-pointer gap-1.5"
-              >
-                <span>Order Now</span>
-                <span className="text-xs opacity-80">▾</span>
-              </button>
-
-              <AnimatePresence>
-                {orderDropdownOpen && (
-                  <motion.div
-                    initial={{ opacity: 0, y: 8 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: 8 }}
-                    transition={{ duration: 0.15 }}
-                    className="absolute right-0 top-full mt-2 w-56 bg-white rounded-2xl shadow-xl border border-cafe-gold/20 overflow-hidden z-50"
-                  >
-                    <a
-                      href={siteConfig.zappieMainMenuUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-2 px-4 py-3.5 text-sm font-medium text-cafe-purple-dark hover:bg-cafe-cream transition-colors border-b border-gray-100"
-                    >
-                      <span>🍽️</span>
-                      <span>Order Food Menu</span>
-                    </a>
-                    <a
-                      href={siteConfig.zappieDrinksMenuUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-2 px-4 py-3.5 text-sm font-medium text-cafe-purple-dark hover:bg-cafe-cream transition-colors"
-                    >
-                      <span>🍸</span>
-                      <span>Order Drinks Menu</span>
-                    </a>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
+              <span>Order Now</span>
+            </a>
 
             <button
               className="md:hidden text-cafe-dark hover:text-cafe-gold transition-colors"
@@ -142,11 +106,25 @@ export function Layout({ children }: { children: React.ReactNode }) {
             transition={{ duration: 0.3 }}
             className="fixed inset-0 z-40 bg-cafe-cream pt-24 px-6 pb-6 flex flex-col"
           >
-            <nav className="flex flex-col space-y-6 text-center mt-12">
+            {/* Top Order Now button inside mobile menu */}
+            <div className="w-full max-w-sm mx-auto mt-12 mb-6 px-4">
+              <a
+                href={siteConfig.zappieUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="w-full py-3.5 text-center text-base font-semibold tracking-wide text-white bg-cafe-purple-dark hover:bg-cafe-gold hover:text-cafe-dark transition-all rounded-full shadow-md flex items-center justify-center gap-2 cursor-pointer"
+              >
+                <span>🛍️</span> Order Now
+              </a>
+            </div>
+
+            <nav className="flex flex-col space-y-6 text-center">
               {navLinks.map((link) => (
                 <Link
                   key={link.name}
                   to={link.path}
+                  onClick={() => setIsMobileMenuOpen(false)}
                   className={cn(
                     "text-2xl font-serif transition-colors",
                     location.pathname === link.path
@@ -158,23 +136,8 @@ export function Layout({ children }: { children: React.ReactNode }) {
                 </Link>
               ))}
             </nav>
-            <div className="mt-auto flex flex-col items-center gap-3.5 w-full max-w-sm mx-auto">
-              <a
-                href={siteConfig.zappieMainMenuUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full py-3.5 text-center text-base font-medium tracking-wide text-white bg-cafe-purple-dark hover:bg-cafe-purple transition-colors rounded-full shadow-md flex items-center justify-center gap-2"
-              >
-                <span>🍽️</span> Order Food Menu
-              </a>
-              <a
-                href={siteConfig.zappieDrinksMenuUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full py-3.5 text-center text-base font-medium tracking-wide text-cafe-purple-dark bg-cafe-gold hover:bg-cafe-gold-light transition-colors rounded-full shadow-md flex items-center justify-center gap-2"
-              >
-                <span>🍸</span> Order Drinks Menu
-              </a>
+
+            <div className="mt-auto flex flex-col items-center gap-3.5 w-full max-w-sm mx-auto pb-4">
               <div className="flex gap-6 text-cafe-dark pt-3">
                 <a href={siteConfig.instagram} target="_blank" rel="noopener noreferrer"><Instagram size={24} /></a>
                 <a href={siteConfig.facebook} target="_blank" rel="noopener noreferrer"><Facebook size={24} /></a>

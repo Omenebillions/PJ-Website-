@@ -27,7 +27,7 @@ export function About() {
           className="aspect-[4/5] rounded-2xl overflow-hidden"
         >
           <img 
-            src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiX48rkNVXu7n5wvsPVoTgtNQOmMraM5H5K67h6G2dySd1JK-WsbPPql1hqnxpspMapx37j6TBLCkEZn719H_XHIm8Gu-Pknkk3nr_gG19Y7hua_K9MLEfgN__VN5JUMt7H8fuhYBen5vq6aJ3y5y5oxhf3d1AdJkhfbtRih2A4e-lMIvbEgSHSQugdCDo_/s320/1hiew2.png" 
+            src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhTg9NCGApXBclZW-zMEavV7LqtF0t3S-P594ORCBF6bi5FaM0b-R2rPb_g9LNzR2U4DfArxy8oaGWfEJfBeX_3l5l0Wp9GuOTFhVZkC13T7AgPxGHBHmzkMwp3QlqlxEtRmMwUcIKZuCk2m6tDFpxQpxygQ6GoIxbe8VhedJZs9RDC2qbH3vecCwe457T8/s320/WhatsApp%20Image%202026-07-13%20at%208.38.41%20AM.jpeg" 
             alt="Dining Experience" 
             className="w-full h-full object-cover"
           />

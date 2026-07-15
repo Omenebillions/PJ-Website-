@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "motion/react";
 import { siteConfig, featuredMenuItems } from "../data";
@@ -12,21 +12,63 @@ const fadeUp = {
 };
 
 export function Home() {
+  const [videoPlaying, setVideoPlaying] = useState(false);
+  const [activeSlide, setActiveSlide] = useState(0);
+
+  // Automatically cycle slides every 10 seconds
+  React.useEffect(() => {
+    const timer = setInterval(() => {
+      setActiveSlide((prev) => (prev === 0 ? 1 : 0));
+    }, 10000);
+    return () => clearInterval(timer);
+  }, []);
+
+  const showOverlayText = activeSlide === 1 || !videoPlaying;
+
   return (
     <div className="w-full">
       {/* Hero Section */}
-      <section className="relative min-h-[720px] lg:min-h-[800px] flex items-center justify-center overflow-hidden bg-cafe-dark pb-16">
-        {/* Background Image with Overlay */}
+      <section className="relative h-[65vh] md:h-[75vh] min-h-[480px] lg:min-h-[600px] flex items-center justify-center overflow-hidden bg-cafe-dark">
+        {/* Cinematic Background Slideshow (Video and Image) */}
         <div className="absolute inset-0 z-0">
-          <img 
-            src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjMhnS3ZhBgn8EdTwBOfemt8S3g-3-5m1ggX6NejogpIrLcATBi3dPVJ0BPlna6GnB3TTAGsFEavnA06PdV5sLqOERlpIXEEuI2LIQ1Kn8lxowJ7Uipm_mX7aszgTsOnnaqfxf0TAPrc057smQKMmjtqii8PkdBrtyqT5U4ooZDjonQ258EBdG3e72bd_BK/s320/9afva6.jpg" 
-            alt="Interior of Purple Jasmine Cafe" 
-            className="w-full h-full object-cover opacity-60"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-cafe-purple-dark/90 via-cafe-dark/50 to-transparent" />
+          {/* Slide 0: Video */}
+          <div className={`absolute inset-0 transition-opacity duration-1000 ${activeSlide === 0 ? "opacity-100" : "opacity-0 pointer-events-none"}`}>
+            <video
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="metadata"
+              onPlay={() => {
+                if (activeSlide === 0) setVideoPlaying(true);
+              }}
+              onPause={() => setVideoPlaying(false)}
+              className="w-full h-full object-cover"
+              poster="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjMhnS3ZhBgn8EdTwBOfemt8S3g-3-5m1ggX6NejogpIrLcATBi3dPVJ0BPlna6GnB3TTAGsFEavnA06PdV5sLqOERlpIXEEuI2LIQ1Kn8lxowJ7Uipm_mX7aszgTsOnnaqfxf0TAPrc057smQKMmjtqii8PkdBrtyqT5U4ooZDjonQ258EBdG3e72bd_BK/s320/9afva6.jpg"
+            >
+              <source
+                src="https://solitary-bar-a943.ejaetaomene.workers.dev/"
+                type="video/mp4"
+              />
+              Your browser does not support the video tag.
+            </video>
+          </div>
+
+          {/* Slide 1: Image of Purple Jasmine Café */}
+          <div className={`absolute inset-0 transition-opacity duration-1000 ${activeSlide === 1 ? "opacity-100" : "opacity-0 pointer-events-none"}`}>
+            <img 
+              src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjMhnS3ZhBgn8EdTwBOfemt8S3g-3-5m1ggX6NejogpIrLcATBi3dPVJ0BPlna6GnB3TTAGsFEavnA06PdV5sLqOERlpIXEEuI2LIQ1Kn8lxowJ7Uipm_mX7aszgTsOnnaqfxf0TAPrc057smQKMmjtqii8PkdBrtyqT5U4ooZDjonQ258EBdG3e72bd_BK/s320/9afva6.jpg" 
+              alt="Atmosphere at Purple Jasmine Cafe" 
+              className="w-full h-full object-cover"
+            />
+          </div>
+
+          {/* Multi-layered luxury gradient mask */}
+          <div className="absolute inset-0 bg-gradient-to-t from-cafe-purple-dark via-cafe-dark/25 to-black/30 transition-opacity duration-1000" />
         </div>
 
-        <div className="relative z-10 text-center px-6 max-w-4xl mx-auto pt-36 md:pt-44">
+        {/* Text overlay - dynamically fades when video plays on active slide 0 */}
+        <div className={`relative z-10 text-center px-6 max-w-4xl mx-auto transition-all duration-1000 transform ${showOverlayText ? "opacity-100 scale-100" : "opacity-0 scale-95 pointer-events-none"}`}>
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -45,27 +87,65 @@ export function Home() {
             <p className="text-sm md:text-base text-cafe-cream/80 font-light mb-10 max-w-2xl mx-auto">
               Indulge in exceptional food, handcrafted drinks, and unforgettable moments at Purple Jasmine Café.
             </p>
+          </motion.div>
+        </div>
+
+        {/* Premium Dot Navigation */}
+        <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 z-20 flex gap-3">
+          <button
+            onClick={() => {
+              setActiveSlide(0);
+              setVideoPlaying(false); // trigger replay state check
+            }}
+            aria-label="Video Slide"
+            className={`w-3 h-3 rounded-full transition-all duration-300 cursor-pointer ${activeSlide === 0 ? "bg-cafe-gold scale-125" : "bg-white/40 hover:bg-white/60"}`}
+          />
+          <button
+            onClick={() => setActiveSlide(1)}
+            aria-label="Atmospheric Image Slide"
+            className={`w-3 h-3 rounded-full transition-all duration-300 cursor-pointer ${activeSlide === 1 ? "bg-cafe-gold scale-125" : "bg-white/40 hover:bg-white/60"}`}
+          />
+        </div>
+      </section>
+
+      {/* Experience & Order Sections - Clean Premium UI immediately below the video banner */}
+      <section className="py-12 px-6 md:px-12 bg-cafe-cream/35 border-b border-cafe-gold/10 relative z-10">
+        <div className="max-w-4xl mx-auto text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 35 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="space-y-6"
+          >
+            <span className="inline-block py-1.5 px-4 rounded-full border border-cafe-gold/30 bg-cafe-gold/5 text-cafe-purple-dark text-xs uppercase tracking-[0.15em] font-bold">
+              All-Day Café & Lounge • Breakfast • Brunch • Lunch • Dinner • Cocktails
+            </span>
             
-            <div className="flex flex-wrap items-center justify-center gap-4">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif text-cafe-purple-dark leading-tight">
+              Experience the <span className="text-cafe-gold italic">Language</span> of Taste
+            </h2>
+            
+            <p className="text-lg md:text-xl text-cafe-purple-dark/80 font-medium tracking-wide max-w-2xl mx-auto">
+              Where every smile, every bite, and every sip tells a story.
+            </p>
+            
+            <p className="text-base text-cafe-text/80 leading-relaxed max-w-2xl mx-auto font-light">
+              Indulge in exceptional food, handcrafted drinks, and unforgettable moments at Purple Jasmine Café.
+            </p>
+            
+            <div className="flex flex-wrap items-center justify-center gap-4 pt-4">
               <a 
-                href={siteConfig.zappieMainMenuUrl}
+                href={siteConfig.zappieUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full sm:w-auto px-8 py-4 bg-cafe-gold text-cafe-dark font-medium tracking-wide rounded-full hover:bg-white transition-colors flex items-center justify-center gap-2 shadow-lg"
+                className="w-full sm:w-auto px-8 py-4 bg-cafe-gold hover:bg-cafe-purple-dark hover:text-white text-cafe-dark font-semibold tracking-wide rounded-full transition-all flex items-center justify-center gap-2 shadow-md hover:shadow-lg cursor-pointer"
               >
-                <span>Order Food Menu</span> <ArrowRight size={18} />
-              </a>
-              <a 
-                href={siteConfig.zappieDrinksMenuUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full sm:w-auto px-8 py-4 bg-cafe-purple-dark border border-cafe-gold/40 text-white font-medium tracking-wide rounded-full hover:bg-cafe-purple transition-colors flex items-center justify-center gap-2 shadow-lg"
-              >
-                <span>Order Drinks Menu</span> <ArrowRight size={18} />
+                <span>Order Now</span> <ArrowRight size={18} />
               </a>
               <Link 
                 to="/reservation"
-                className="w-full sm:w-auto px-8 py-4 bg-transparent border-2 border-white/30 text-white font-medium tracking-wide rounded-full hover:bg-white/10 transition-colors"
+                className="w-full sm:w-auto px-8 py-4 bg-transparent border-2 border-cafe-purple-dark/30 hover:border-cafe-purple-dark text-cafe-purple-dark font-semibold tracking-wide rounded-full hover:bg-cafe-purple-dark/5 transition-all flex items-center justify-center"
               >
                 Reserve a Table
               </Link>
@@ -75,7 +155,7 @@ export function Home() {
       </section>
 
       {/* Intro Section */}
-      <section className="py-24 px-6 md:px-12 max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+      <section className="py-14 px-6 md:px-12 max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center">
         <motion.div {...fadeUp}>
           <span className="text-sm font-semibold uppercase tracking-widest text-cafe-gold mb-4 block">Our Story</span>
           <h2 className="text-4xl md:text-5xl font-serif text-cafe-purple-dark mb-6 leading-tight">
@@ -95,7 +175,7 @@ export function Home() {
         >
           <div className="aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl">
             <img 
-              src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiX48rkNVXu7n5wvsPVoTgtNQOmMraM5H5K67h6G2dySd1JK-WsbPPql1hqnxpspMapx37j6TBLCkEZn719H_XHIm8Gu-Pknkk3nr_gG19Y7hua_K9MLEfgN__VN5JUMt7H8fuhYBen5vq6aJ3y5y5oxhf3d1AdJkhfbtRih2A4e-lMIvbEgSHSQugdCDo_/s320/1hiew2.png" 
+              src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhTg9NCGApXBclZW-zMEavV7LqtF0t3S-P594ORCBF6bi5FaM0b-R2rPb_g9LNzR2U4DfArxy8oaGWfEJfBeX_3l5l0Wp9GuOTFhVZkC13T7AgPxGHBHmzkMwp3QlqlxEtRmMwUcIKZuCk2m6tDFpxQpxygQ6GoIxbe8VhedJZs9RDC2qbH3vecCwe457T8/s320/WhatsApp%20Image%202026-07-13%20at%208.38.41%20AM.jpeg" 
               alt="Dining Experience" 
               className="w-full h-full object-cover"
             />
@@ -111,9 +191,9 @@ export function Home() {
       </section>
 
       {/* Featured Menu Section */}
-      <section className="py-24 px-6 md:px-12 bg-white">
+      <section className="py-14 px-6 md:px-12 bg-white">
         <div className="max-w-7xl mx-auto">
-          <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+          <div className="flex flex-col md:flex-row justify-between items-end mb-10 gap-6">
             <motion.div {...fadeUp} className="max-w-2xl">
               <span className="text-sm font-semibold uppercase tracking-widest text-cafe-gold mb-4 block">Main Course</span>
               <h2 className="text-4xl md:text-5xl font-serif text-cafe-purple-dark leading-tight">
@@ -168,7 +248,7 @@ export function Home() {
       </section>
 
       {/* Sunday Brunch Banner */}
-      <section className="py-24 px-6 md:px-12 bg-cafe-purple-dark text-cafe-cream relative overflow-hidden">
+      <section className="py-14 md:py-16 px-6 md:px-12 bg-cafe-purple-dark text-cafe-cream relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
            <img 
             src="https://images.unsplash.com/photo-1525648199074-cee30ba79a4a?q=80&w=2000&auto=format&fit=crop" 
