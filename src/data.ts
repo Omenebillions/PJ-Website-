@@ -10,7 +10,7 @@ export const siteConfig = {
   email: "purplejasminecafe@gmail.com",
   instagram: "https://www.instagram.com/purplejasminecafe",
   facebook: "https://www.facebook.com/share/18ztJAeRZU/",
-  tiktok: "https://www.tiktok.com/@purplejasminecafe",
+  tiktok: "https://www.tiktok.com/@purplejasminecafe?_r=1&_t=ZS-983faFtLBlU",
   zappieUrl: "https://app.zappie.ai/order/purplejasmine/ikoyi?menu_id=RTR20063JvJhPwZ7xLiaW&menu_layout=LIST",
   zappieMainMenuUrl: "https://app.zappie.ai/order/purplejasmine/ikoyi?menu_id=RTR20063JvJhPwZ7xLiaW&menu_layout=LIST",
   zappieDrinksMenuUrl: "https://app.zappie.ai/order/purplejasmine/ikoyi?menu_id=87f8yWpF6XXh39fqr1nfK&menu_layout=LIST",

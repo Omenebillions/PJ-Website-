@@ -141,6 +141,11 @@ export function Layout({ children }: { children: React.ReactNode }) {
               <div className="flex gap-6 text-cafe-dark pt-3">
                 <a href={siteConfig.instagram} target="_blank" rel="noopener noreferrer"><Instagram size={24} /></a>
                 <a href={siteConfig.facebook} target="_blank" rel="noopener noreferrer"><Facebook size={24} /></a>
+                <a href={siteConfig.tiktok} target="_blank" rel="noopener noreferrer">
+                  <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5" />
+                  </svg>
+                </a>
               </div>
             </div>
           </motion.div>
@@ -204,6 +209,11 @@ export function Layout({ children }: { children: React.ReactNode }) {
                 </a>
                 <a href={siteConfig.facebook} target="_blank" rel="noopener noreferrer" className="hover:text-cafe-gold transition-colors">
                   <Facebook size={20} />
+                </a>
+                <a href={siteConfig.tiktok} target="_blank" rel="noopener noreferrer" className="hover:text-cafe-gold transition-colors">
+                  <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5" />
+                  </svg>
                 </a>
               </div>
             </div>
