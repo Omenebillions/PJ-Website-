@@ -15,8 +15,8 @@ export const siteConfig = {
   zappieMainMenuUrl: "https://app.zappie.ai/order/purplejasmine/ikoyi?menu_id=RTR20063JvJhPwZ7xLiaW&menu_layout=LIST",
   zappieDrinksMenuUrl: "https://app.zappie.ai/order/purplejasmine/ikoyi?menu_id=87f8yWpF6XXh39fqr1nfK&menu_layout=LIST",
   hours: {
-    weekdays: "08:00 AM - 10:00 PM",
-    weekends: "08:00 AM - 10:00 PM",
+    weekdays: "08:30 AM - 10:00 PM",
+    weekends: "08:30 AM - 10:00 PM",
   }
 };
 

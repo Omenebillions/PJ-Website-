@@ -65,7 +65,7 @@ export function About() {
           </div>
           <div className="bg-cafe-cream p-6 rounded-2xl">
             <h4 className="font-semibold text-cafe-gold uppercase tracking-wider text-sm mb-2">Hours</h4>
-            <p className="text-cafe-dark">Mon - Sun: 08:00 AM - 10:00 PM</p>
+            <p className="text-cafe-dark">Mon - Sun: {siteConfig.hours.weekdays}</p>
           </div>
         </div>
       </div>

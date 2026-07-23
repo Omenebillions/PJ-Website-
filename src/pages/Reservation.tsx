@@ -27,7 +27,7 @@ export function Reservation() {
     date: "",
     time: "",
     guests: "2",
-    occasion: "Casual Dining"
+    occasion: "Sunday Brunch"
   });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {

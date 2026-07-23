@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "motion/react";
 import { siteConfig, featuredMenuItems } from "../data";
-import { ArrowRight, Star, ShoppingBag } from "lucide-react";
+import { ArrowRight, Star, ShoppingBag, Instagram, Facebook } from "lucide-react";
 
 const fadeUp = {
   initial: { opacity: 0, y: 20 },
@@ -237,15 +237,76 @@ export function Home() {
           <motion.div {...fadeUp}>
             <span className="text-cafe-gold uppercase tracking-[0.2em] font-semibold text-sm mb-4 block">Special Event</span>
             <h2 className="text-5xl md:text-7xl font-serif mb-8 text-white italic">Sunday Brunch</h2>
-            <p className="text-lg md:text-xl text-white/80 font-light mb-10 max-w-2xl mx-auto">
+            <p className="text-lg md:text-xl text-white/80 font-light mb-8 max-w-2xl mx-auto">
               For ₦55,000 only, enjoy a delicious 3-course brunch with 2 drinks and beautiful moments to share.
             </p>
-            <Link 
-              to="/reservation"
-              className="inline-flex px-10 py-4 bg-white text-cafe-purple-dark font-semibold tracking-wide rounded-full hover:bg-cafe-gold hover:text-white transition-colors"
-            >
-              Reserve Your Table
-            </Link>
+            <div className="mb-10">
+              <Link 
+                to="/reservation"
+                className="inline-flex px-10 py-4 bg-white text-cafe-purple-dark font-semibold tracking-wide rounded-full hover:bg-cafe-gold hover:text-white transition-colors shadow-lg"
+              >
+                Reserve Your Table
+              </Link>
+            </div>
+
+            {/* Sunday Brunch Flyer / Image */}
+            <div className="mt-6 max-w-md mx-auto rounded-2xl overflow-hidden shadow-2xl border-2 border-cafe-gold/30 bg-cafe-dark">
+              <img 
+                src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjXsmHHUaDCyzjBbHQVBSid4Rap47pW3qHgWoMAwVa8OdiFtWazbqaeO9xXxX3ShYMXuIapBY0tf_mwiWv_fH6r5DwsT6r3anPjLXUWInSU_NbRUlO9cFD1qOshIkLrT-SvyLEIWaZO1TmtNSSsJ8yGq6LO4InbTnkQY8WjqQRd5hwXY01xwaCHrgiyAVKY/s400/file_00000000183c71f8ac399b7da0bd2682.png" 
+                alt="Sunday Brunch Flyer" 
+                referrerPolicy="no-referrer"
+                className="w-full h-auto object-cover"
+              />
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Social Media Follow Section */}
+      <section className="py-14 px-6 md:px-12 bg-cafe-cream/40 border-t border-cafe-gold/10 text-center">
+        <div className="max-w-4xl mx-auto">
+          <motion.div {...fadeUp}>
+            <span className="text-xs font-bold uppercase tracking-[0.2em] text-cafe-gold mb-2 block">Stay Connected</span>
+            <h3 className="text-3xl md:text-4xl font-serif font-bold text-cafe-purple-dark mb-4">
+              Follow Us on Social Media
+            </h3>
+            <p className="text-sm md:text-base text-cafe-text/80 mb-8 max-w-lg mx-auto leading-relaxed">
+              Experience the latest menu highlights, behind-the-scenes moments, and special updates on TikTok, Instagram, and Facebook.
+            </p>
+
+            <div className="flex flex-wrap items-center justify-center gap-4">
+              <a 
+                href={siteConfig.tiktok} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="px-6 py-3.5 bg-black text-white hover:bg-cafe-gold hover:text-cafe-dark font-semibold rounded-full transition-all flex items-center gap-2.5 shadow-md hover:shadow-lg text-sm cursor-pointer"
+              >
+                <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5" />
+                </svg>
+                <span>Follow on TikTok</span>
+              </a>
+
+              <a 
+                href={siteConfig.instagram} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="px-6 py-3.5 bg-cafe-purple-dark text-white hover:bg-cafe-gold hover:text-cafe-dark font-semibold rounded-full transition-all flex items-center gap-2.5 shadow-md hover:shadow-lg text-sm cursor-pointer"
+              >
+                <Instagram size={18} />
+                <span>Follow on Instagram</span>
+              </a>
+
+              <a 
+                href={siteConfig.facebook} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="px-6 py-3.5 bg-white border border-cafe-gold/30 text-cafe-purple-dark hover:bg-cafe-gold hover:text-white font-semibold rounded-full transition-all flex items-center gap-2.5 shadow-md hover:shadow-lg text-sm cursor-pointer"
+              >
+                <Facebook size={18} />
+                <span>Follow on Facebook</span>
+              </a>
+            </div>
           </motion.div>
         </div>
       </section>
