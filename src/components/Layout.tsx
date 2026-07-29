@@ -222,9 +222,15 @@ export function Layout({ children }: { children: React.ReactNode }) {
         
         <div className="max-w-7xl mx-auto mt-16 pt-8 border-t border-white/10 text-center md:text-left text-xs text-cafe-cream/50 flex flex-col md:flex-row justify-between items-center">
           <p>&copy; {new Date().getFullYear()} Purple Jasmine Cafe. All rights reserved.</p>
-          <div className="mt-4 md:mt-0 space-x-6">
-            <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
-            <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
+          <div className="mt-4 md:mt-0">
+            <a 
+              href="https://wa.me/2348038744441" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="hover:text-cafe-gold transition-colors"
+            >
+              Tastefully Crafted by Tintville
+            </a>
           </div>
         </div>
       </footer>

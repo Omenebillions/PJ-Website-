@@ -153,6 +153,8 @@ export function Reservation() {
                           id="name"
                           name="name"
                           required
+                          maxLength={100}
+                          autoComplete="name"
                           value={formData.name}
                           onChange={handleChange}
                           placeholder="Your Name"
@@ -170,6 +172,8 @@ export function Reservation() {
                           id="email"
                           name="email"
                           required
+                          maxLength={120}
+                          autoComplete="email"
                           value={formData.email}
                           onChange={handleChange}
                           placeholder="your.email@example.com"
@@ -189,6 +193,8 @@ export function Reservation() {
                           id="phone"
                           name="phone"
                           required
+                          maxLength={30}
+                          autoComplete="tel"
                           value={formData.phone}
                           onChange={handleChange}
                           placeholder="e.g. 0814 824 7243"
@@ -268,6 +274,7 @@ export function Reservation() {
                         type="text"
                         id="occasion"
                         name="occasion"
+                        maxLength={250}
                         value={formData.occasion}
                         onChange={handleChange}
                         placeholder="Birthday, anniversary, business or general notes..."
