@@ -107,7 +107,14 @@ export function Menu() {
               >
                 {item.image && (
                   <div className="w-full sm:w-32 h-48 sm:h-32 shrink-0 rounded-2xl overflow-hidden bg-cafe-cream border border-cafe-gold/10">
-                    <img src={item.image} alt={item.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                    <img 
+                      src={item.image} 
+                      alt={item.name} 
+                      loading="lazy"
+                      decoding="async"
+                      referrerPolicy="no-referrer"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
+                    />
                   </div>
                 )}
                 <div className="flex-1 w-full">

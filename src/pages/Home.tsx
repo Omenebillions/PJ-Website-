@@ -44,7 +44,7 @@ export function Home() {
               }}
               onPause={() => setVideoPlaying(false)}
               className="w-full h-full object-cover"
-              poster="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjMhnS3ZhBgn8EdTwBOfemt8S3g-3-5m1ggX6NejogpIrLcATBi3dPVJ0BPlna6GnB3TTAGsFEavnA06PdV5sLqOERlpIXEEuI2LIQ1Kn8lxowJ7Uipm_mX7aszgTsOnnaqfxf0TAPrc057smQKMmjtqii8PkdBrtyqT5U4ooZDjonQ258EBdG3e72bd_BK/s320/9afva6.jpg"
+              poster="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjMhnS3ZhBgn8EdTwBOfemt8S3g-3-5m1ggX6NejogpIrLcATBi3dPVJ0BPlna6GnB3TTAGsFEavnA06PdV5sLqOERlpIXEEuI2LIQ1Kn8lxowJ7Uipm_mX7aszgTsOnnaqfxf0TAPrc057smQKMmjtqii8PkdBrtyqT5U4ooZDjonQ258EBdG3e72bd_BK/s1600/9afva6.jpg"
             >
               <source
                 src="https://solitary-bar-a943.ejaetaomene.workers.dev/"
@@ -57,8 +57,10 @@ export function Home() {
           {/* Slide 1: Image of Purple Jasmine Café */}
           <div className={`absolute inset-0 transition-opacity duration-1000 ${activeSlide === 1 ? "opacity-100" : "opacity-0 pointer-events-none"}`}>
             <img 
-              src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjMhnS3ZhBgn8EdTwBOfemt8S3g-3-5m1ggX6NejogpIrLcATBi3dPVJ0BPlna6GnB3TTAGsFEavnA06PdV5sLqOERlpIXEEuI2LIQ1Kn8lxowJ7Uipm_mX7aszgTsOnnaqfxf0TAPrc057smQKMmjtqii8PkdBrtyqT5U4ooZDjonQ258EBdG3e72bd_BK/s320/9afva6.jpg" 
+              src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjMhnS3ZhBgn8EdTwBOfemt8S3g-3-5m1ggX6NejogpIrLcATBi3dPVJ0BPlna6GnB3TTAGsFEavnA06PdV5sLqOERlpIXEEuI2LIQ1Kn8lxowJ7Uipm_mX7aszgTsOnnaqfxf0TAPrc057smQKMmjtqii8PkdBrtyqT5U4ooZDjonQ258EBdG3e72bd_BK/s1600/9afva6.jpg" 
               alt="Atmosphere at Purple Jasmine Cafe" 
+              decoding="async"
+              referrerPolicy="no-referrer"
               className="w-full h-full object-cover"
             />
           </div>
@@ -152,8 +154,11 @@ export function Home() {
         >
           <div className="aspect-[4/5] rounded-2xl overflow-hidden shadow-2xl">
             <img 
-              src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhTg9NCGApXBclZW-zMEavV7LqtF0t3S-P594ORCBF6bi5FaM0b-R2rPb_g9LNzR2U4DfArxy8oaGWfEJfBeX_3l5l0Wp9GuOTFhVZkC13T7AgPxGHBHmzkMwp3QlqlxEtRmMwUcIKZuCk2m6tDFpxQpxygQ6GoIxbe8VhedJZs9RDC2qbH3vecCwe457T8/s320/WhatsApp%20Image%202026-07-13%20at%208.38.41%20AM.jpeg" 
+              src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhTg9NCGApXBclZW-zMEavV7LqtF0t3S-P594ORCBF6bi5FaM0b-R2rPb_g9LNzR2U4DfArxy8oaGWfEJfBeX_3l5l0Wp9GuOTFhVZkC13T7AgPxGHBHmzkMwp3QlqlxEtRmMwUcIKZuCk2m6tDFpxQpxygQ6GoIxbe8VhedJZs9RDC2qbH3vecCwe457T8/s1600/WhatsApp%20Image%202026-07-13%20at%208.38.41%20AM.jpeg" 
               alt="Dining Experience" 
+              loading="lazy"
+              decoding="async"
+              referrerPolicy="no-referrer"
               className="w-full h-full object-cover"
             />
           </div>
@@ -204,6 +209,9 @@ export function Home() {
                     <img 
                       src={item.image} 
                       alt={item.name} 
+                      loading="lazy"
+                      decoding="async"
+                      referrerPolicy="no-referrer"
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                     />
                   </div>
@@ -252,8 +260,10 @@ export function Home() {
             {/* Sunday Brunch Flyer / Image */}
             <div className="mt-6 max-w-md mx-auto rounded-2xl overflow-hidden shadow-2xl border-2 border-cafe-gold/30 bg-cafe-dark">
               <img 
-                src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjXsmHHUaDCyzjBbHQVBSid4Rap47pW3qHgWoMAwVa8OdiFtWazbqaeO9xXxX3ShYMXuIapBY0tf_mwiWv_fH6r5DwsT6r3anPjLXUWInSU_NbRUlO9cFD1qOshIkLrT-SvyLEIWaZO1TmtNSSsJ8yGq6LO4InbTnkQY8WjqQRd5hwXY01xwaCHrgiyAVKY/s400/file_00000000183c71f8ac399b7da0bd2682.png" 
+                src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjXsmHHUaDCyzjBbHQVBSid4Rap47pW3qHgWoMAwVa8OdiFtWazbqaeO9xXxX3ShYMXuIapBY0tf_mwiWv_fH6r5DwsT6r3anPjLXUWInSU_NbRUlO9cFD1qOshIkLrT-SvyLEIWaZO1TmtNSSsJ8yGq6LO4InbTnkQY8WjqQRd5hwXY01xwaCHrgiyAVKY/s1600/file_00000000183c71f8ac399b7da0bd2682.png" 
                 alt="Sunday Brunch Flyer" 
+                loading="lazy"
+                decoding="async"
                 referrerPolicy="no-referrer"
                 className="w-full h-auto object-cover"
               />
