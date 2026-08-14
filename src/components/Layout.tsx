@@ -224,7 +224,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
           <p>&copy; {new Date().getFullYear()} Purple Jasmine Cafe. All rights reserved.</p>
           <div className="mt-4 md:mt-0">
             <a 
-              href="https://wa.me/2348038744441" 
+              href="https://wa.me/2348148247243" 
               target="_blank" 
               rel="noopener noreferrer" 
               className="hover:text-cafe-gold transition-colors"

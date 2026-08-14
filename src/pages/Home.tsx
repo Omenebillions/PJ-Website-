@@ -18,7 +18,7 @@ export function Home() {
   // Automatically cycle slides every 10 seconds
   React.useEffect(() => {
     const timer = setInterval(() => {
-      setActiveSlide((prev) => (prev === 0 ? 1 : 0));
+      setActiveSlide((prev) => (prev === 4 ? 0 : prev + 1));
     }, 10000);
     return () => clearInterval(timer);
   }, []);
@@ -45,6 +45,7 @@ export function Home() {
               onPause={() => setVideoPlaying(false)}
               className="w-full h-full object-cover"
               poster="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjMhnS3ZhBgn8EdTwBOfemt8S3g-3-5m1ggX6NejogpIrLcATBi3dPVJ0BPlna6GnB3TTAGsFEavnA06PdV5sLqOERlpIXEEuI2LIQ1Kn8lxowJ7Uipm_mX7aszgTsOnnaqfxf0TAPrc057smQKMmjtqii8PkdBrtyqT5U4ooZDjonQ258EBdG3e72bd_BK/s1600/9afva6.jpg"
+              fetchPriority="high"
             >
               <source
                 src="https://solitary-bar-a943.ejaetaomene.workers.dev/"
@@ -60,9 +61,66 @@ export function Home() {
               src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjMhnS3ZhBgn8EdTwBOfemt8S3g-3-5m1ggX6NejogpIrLcATBi3dPVJ0BPlna6GnB3TTAGsFEavnA06PdV5sLqOERlpIXEEuI2LIQ1Kn8lxowJ7Uipm_mX7aszgTsOnnaqfxf0TAPrc057smQKMmjtqii8PkdBrtyqT5U4ooZDjonQ258EBdG3e72bd_BK/s1600/9afva6.jpg" 
               alt="Atmosphere at Purple Jasmine Cafe" 
               decoding="async"
+              loading="eager"
+              fetchPriority="high"
               referrerPolicy="no-referrer"
               className="w-full h-full object-cover"
             />
+          </div>
+
+          {/* Slide 2: Chicken Herb Rice Bowl */}
+          <div className={`absolute inset-0 transition-opacity duration-1000 flex flex-col items-center justify-center ${activeSlide === 2 ? "opacity-100 z-10" : "opacity-0 z-0 pointer-events-none"}`}>
+            <img 
+              src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh1XIPfW7B5IGCct6OUDokn7imDDvfuIHjIFV6tDV39e9EOF3HLtR7Aoqz_voOB_2hWxF1l6htcoc1ViLig6P9Qkz_3cLQndbm3jgBnNrPRf4PSqVRde2jlIsHdDypZHLXuc0GcuUiZGaeJLKAR0NV15WrjxGpLqpifJBlbbQvKRu81TbpiBra8usYY1xqH/s1600/Chicken%20Herb%20Rice%20Bowl.png" 
+              alt="Chicken Herb Rice Bowl" 
+              decoding="async"
+              loading="eager"
+              referrerPolicy="no-referrer"
+              className="absolute inset-0 w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-black/40" />
+            <div className="relative z-20 text-center px-4">
+               <h3 className="text-4xl md:text-5xl lg:text-6xl font-serif text-white mb-6 italic tracking-wide">Chicken Herb Rice Bowl</h3>
+               <a href="https://app.zappie.ai/order/purplejasmine/ikoyi?category_id=ou1mudzgt2PkUMqWVjFsI&menu_id=RTR20063JvJhPwZ7xLiaW&menu_layout=LIST&modal_id=product_5lh8ntFXSA3hfJh80dF5Z" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 bg-cafe-gold hover:bg-white text-cafe-dark font-semibold tracking-wide rounded-full px-8 py-3 transition-colors shadow-lg">
+                 Order Now <ShoppingBag size={18} />
+               </a>
+            </div>
+          </div>
+
+          {/* Slide 3: Lamb Chops */}
+          <div className={`absolute inset-0 transition-opacity duration-1000 flex flex-col items-center justify-center ${activeSlide === 3 ? "opacity-100 z-10" : "opacity-0 z-0 pointer-events-none"}`}>
+            <img 
+              src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEimRboFgQ4C7Q76IUBHN_IZaiI5XmZg1jHvo2Tbf3U3C2oFQPQ8h70VlOiVIY20VPqUlpADy6GkkL8Hy4Gh3vaxSFisLXRLAV7buMUuLrD9PXCbTNMs22F5B-CHfiVZGH4SUKgdcA80nzrUaSLHY2MJEHBe0LBYy55XnqPFo2xZBReyyOT9BxcgGiivW4Bu/s1600/lambchop.jpg" 
+              alt="Lamb Chops" 
+              decoding="async"
+              referrerPolicy="no-referrer"
+              className="absolute inset-0 w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-black/40" />
+            <div className="relative z-20 text-center px-4">
+               <h3 className="text-4xl md:text-5xl lg:text-6xl font-serif text-white mb-6 italic tracking-wide">Premium Lamb Chops</h3>
+               <a href="https://app.zappie.ai/order/purplejasmine/ikoyi?category_id=ou1mudzgt2PkUMqWVjFsI&menu_id=RTR20063JvJhPwZ7xLiaW&menu_layout=LIST&modal_id=product_0zsjDu8GeronHCPQDYLKS" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 bg-cafe-gold hover:bg-white text-cafe-dark font-semibold tracking-wide rounded-full px-8 py-3 transition-colors shadow-lg">
+                 Order Now <ShoppingBag size={18} />
+               </a>
+            </div>
+          </div>
+
+          {/* Slide 4: Parmesan Chicken */}
+          <div className={`absolute inset-0 transition-opacity duration-1000 flex flex-col items-center justify-center ${activeSlide === 4 ? "opacity-100 z-10" : "opacity-0 z-0 pointer-events-none"}`}>
+            <img 
+              src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgWyb4e6ZPu1_XE9DAjl75YxgG34PO4TA7fr3j2FPbWBhSxsmJ8aOA0ad_zuQkkYrdGZ24iLttMIJ1qIJ0yV1vcXKvnhIxDK4e98x3ISZDNRWHjCVmqfyVgVoGhdrBRazGHC7nmdAjcH7ilywTWyuJFFeuwZSvXJMZiM6W59HAFS13fxvz_4ehmbGScygW7/s1600/permessan.png" 
+              alt="Parmesan Chicken" 
+              decoding="async"
+              referrerPolicy="no-referrer"
+              className="absolute inset-0 w-full h-full object-cover"
+            />
+            <div className="absolute inset-0 bg-black/40" />
+            <div className="relative z-20 text-center px-4">
+               <h3 className="text-4xl md:text-5xl lg:text-6xl font-serif text-white mb-6 italic tracking-wide">Parmesan Chicken</h3>
+               <a href="https://app.zappie.ai/order/purplejasmine/ikoyi?category_id=ou1mudzgt2PkUMqWVjFsI&menu_id=RTR20063JvJhPwZ7xLiaW&menu_layout=LIST&modal_id=product_F64ATuYTdFsssyhom248f" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 bg-cafe-gold hover:bg-white text-cafe-dark font-semibold tracking-wide rounded-full px-8 py-3 transition-colors shadow-lg">
+                 Order Now <ShoppingBag size={18} />
+               </a>
+            </div>
           </div>
 
           {/* Multi-layered luxury gradient mask */}
@@ -83,6 +141,21 @@ export function Home() {
             onClick={() => setActiveSlide(1)}
             aria-label="Atmospheric Image Slide"
             className={`w-3 h-3 rounded-full transition-all duration-300 cursor-pointer ${activeSlide === 1 ? "bg-cafe-gold scale-125" : "bg-white/40 hover:bg-white/60"}`}
+          />
+          <button
+            onClick={() => setActiveSlide(2)}
+            aria-label="Chicken Herb Rice Bowl Slide"
+            className={`w-3 h-3 rounded-full transition-all duration-300 cursor-pointer ${activeSlide === 2 ? "bg-cafe-gold scale-125" : "bg-white/40 hover:bg-white/60"}`}
+          />
+          <button
+            onClick={() => setActiveSlide(3)}
+            aria-label="Lamb Chops Slide"
+            className={`w-3 h-3 rounded-full transition-all duration-300 cursor-pointer ${activeSlide === 3 ? "bg-cafe-gold scale-125" : "bg-white/40 hover:bg-white/60"}`}
+          />
+          <button
+            onClick={() => setActiveSlide(4)}
+            aria-label="Parmesan Chicken Slide"
+            className={`w-3 h-3 rounded-full transition-all duration-300 cursor-pointer ${activeSlide === 4 ? "bg-cafe-gold scale-125" : "bg-white/40 hover:bg-white/60"}`}
           />
         </div>
       </section>
@@ -266,6 +339,47 @@ export function Home() {
                 decoding="async"
                 referrerPolicy="no-referrer"
                 className="w-full h-auto object-cover"
+              />
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Catering Services Banner */}
+      <section className="py-14 md:py-16 px-6 md:px-12 bg-cafe-dark text-cafe-cream relative overflow-hidden border-t-2 border-cafe-gold/20">
+        <div className="absolute inset-0 opacity-15">
+           <img 
+            src="https://images.unsplash.com/photo-1555244162-803834f70033?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80" 
+            alt="Catering background" 
+            className="w-full h-full object-cover"
+          />
+        </div>
+        <div className="max-w-4xl mx-auto text-center relative z-10">
+          <motion.div {...fadeUp}>
+            <span className="text-cafe-gold uppercase tracking-[0.2em] font-semibold text-sm mb-4 block">Premium Service</span>
+            <h2 className="text-5xl md:text-7xl font-serif mb-8 text-white italic">Catering Services</h2>
+            <p className="text-lg md:text-xl text-white/80 font-light mb-8 max-w-2xl mx-auto leading-relaxed">
+              Elevate your next event with our exquisitely crafted meals and bulk orders. Classy service, impeccable taste, and unforgettable moments for your guests.
+            </p>
+            <div className="mb-10">
+              <a 
+                href="https://wa.me/2348148247243"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-10 py-4 bg-cafe-gold text-cafe-dark font-semibold tracking-wide rounded-full hover:bg-white transition-colors shadow-lg"
+              >
+                Book Us Now (0814 824 7243)
+              </a>
+            </div>
+
+            {/* Catering Services Splash Image */}
+            <div className="mt-6 max-w-2xl mx-auto rounded-2xl overflow-hidden shadow-2xl border-2 border-cafe-gold/30 bg-cafe-dark">
+              <img 
+                src="https://images.unsplash.com/photo-1555244162-803834f70033?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80" 
+                alt="Catering Services" 
+                loading="lazy"
+                decoding="async"
+                className="w-full h-[400px] object-cover"
               />
             </div>
           </motion.div>

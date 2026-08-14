@@ -361,8 +361,53 @@ export function Reservation() {
             </AnimatePresence>
           </motion.div>
         </div>
-
       </div>
+
+      {/* Catering Services Banner */}
+      <section className="py-14 md:py-16 px-6 md:px-12 bg-cafe-dark text-cafe-cream relative overflow-hidden border-t-2 border-cafe-gold/20 mt-16">
+        <div className="absolute inset-0 opacity-15">
+           <img 
+            src="https://images.unsplash.com/photo-1555244162-803834f70033?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80" 
+            alt="Catering background" 
+            className="w-full h-full object-cover"
+          />
+        </div>
+        <div className="max-w-4xl mx-auto text-center relative z-10">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6 }}
+          >
+            <span className="text-cafe-gold uppercase tracking-[0.2em] font-semibold text-sm mb-4 block">Premium Service</span>
+            <h2 className="text-5xl md:text-7xl font-serif mb-8 text-white italic">Catering Services</h2>
+            <p className="text-lg md:text-xl text-white/80 font-light mb-8 max-w-2xl mx-auto leading-relaxed">
+              Elevate your next event with our exquisitely crafted meals and bulk orders. Classy service, impeccable taste, and unforgettable moments for your guests.
+            </p>
+            <div className="mb-10">
+              <a 
+                href="https://wa.me/2348148247243"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-10 py-4 bg-cafe-gold text-cafe-dark font-semibold tracking-wide rounded-full hover:bg-white transition-colors shadow-lg"
+              >
+                Book Us Now (0814 824 7243)
+              </a>
+            </div>
+
+            {/* Catering Services Splash Image */}
+            <div className="mt-6 max-w-2xl mx-auto rounded-2xl overflow-hidden shadow-2xl border-2 border-cafe-gold/30 bg-cafe-dark">
+              <img 
+                src="https://images.unsplash.com/photo-1555244162-803834f70033?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80" 
+                alt="Catering Services" 
+                loading="lazy"
+                decoding="async"
+                className="w-full h-[400px] object-cover"
+              />
+            </div>
+          </motion.div>
+        </div>
+      </section>
     </div>
   );
 }
